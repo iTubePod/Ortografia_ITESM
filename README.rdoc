@@ -1,5 +1,3 @@
 == README
 
 In development ;)
-
-<tt>rake doc:app</tt>.
