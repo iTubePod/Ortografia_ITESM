@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Dashboard</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<% if user_signed_in? %>
+  <ul id="dropdown1" class="dropdown-content">
+                <li><%=link_to '<p class="blue-text text-lighten-1">Cerrar Sesión<i class="material-icons right">input</i></p>'.html_safe, destroy_user_session_path, :method => 'delete'%></li>
+                <li class="divider"></li>
+        </ul>
+        <div class="navbar-fixed">
+        <nav class="blue lighten-1" role="navigation">
+            <div class="nav-wrapper">
+                <a id="logo-container" href="#" class="brand-logo"><img style="border: none;" src="assets/icon.png" alt="Home"/></a>
+                            <ul class="right hide-on-med-and-down">
+                                  <li><a href="#">Hola, <%=current_user.name %></a></li>
+                                  <li><a href="activities">Actividades<i class="material-icons left">assignment</i></a></li>
+                                  <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" href="#" data-activates="dropdown1">Configuración<i class="material-icons right">settings</i><i class="material-icons right">arrow_drop_down</i></a></li>
+                             </ul>
+                            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                        </div>
+                    <ul id="nav-mobile" class="side-nav">
+                      <li>
+                    <div class="row center">
+                      <p class="blue-text text-lighten-1">Hola, <%=current_user.name %>!<i class="material-icons left">perm_identity</i></p>
+                    </div>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <div class="row center">
+                          <a class="blue-text text-lighten-1" href="activities">Actividades<i class="material-icons left">assignment</i></a>
+                        </div>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <%=link_to '<p class="blue-text text-lighten-1">Cerrar Sesión<i class="material-icons left">input</i></p>'.html_safe, destroy_user_session_path, :method => 'delete'%>
+                      </li>
+        </ul>
+      </div>
+  </nav>
+  <% end %>
+  </body>
+  </html>
