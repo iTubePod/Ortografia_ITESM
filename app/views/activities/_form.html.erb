@@ -1,3 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Dashboard</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Activities</h1>
+        <div class="row center">
+          <h5 class="header col s12 light"></h5>
+        </div>
+        <div class="row center">
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/background4.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
 <%= form_for(@activity) do |f| %>
   <% if @activity.errors.any? %>
     <div id="error_explanation">
@@ -39,3 +70,19 @@
     <%= f.submit %>
   </div>
 <% end %>
+      </table>
+
+      <br>
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/background4.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+</body>
+</html>
