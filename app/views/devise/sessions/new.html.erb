@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+<body background="/background.jpg">
   <div class="navbar-fixed">
   <nav class="blue lighten-1" role="navigation">
     <div class="nav-wrapper">
@@ -16,7 +17,8 @@
     </div>
   </nav>
   </div>
-  <h1 class="header center teal-text text-lighten-2">Inicio de Sesión</h1>
+  <br><br>
+  <br>
   <div class="container">
     <div class="container">
       <div class="container">
@@ -26,14 +28,20 @@
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <div class="row">
                     <div class="input-field">
-                      <p class="teal-text text-lighten-2">Matrícula</p>
+                      <img class="responsive-img" src="/logo.png">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field">
+                      <p class="teal-text text-lighten-2">Username</p>
                       <%= f.text_field :matricula%>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="input-field">
-                    <p class="teal-text text-lighten-2">Contraseña</p>
+                    <p class="teal-text text-lighten-2">Password</p>
                       <%= f.password_field :password, autocomplete: "off" %>
                     </div>
                   </div>
@@ -61,3 +69,5 @@
       </div>
     </div>
   </div>
+  <br><br>
+  <br>
