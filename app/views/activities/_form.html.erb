@@ -1,88 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Dashboard</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Activities</h1>
-        <div class="row center">
-          <h5 class="header col s12 light"></h5>
-        </div>
-        <div class="row center">
-        </div>
-        <br><br>
-
-      </div>
-    </div>
-    <div class="parallax"><img src="assets/background4.jpg" alt="Unsplashed background img 1"></div>
-  </div>
-
-
+<div class="container">  
   <div class="container">
-    <div class="section">
-<%= form_for(@activity) do |f| %>
-  <% if @activity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
-
-      <ul>
-      <% @activity.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :chapter %><br>
-    <%= f.text_field :chapter %>
-  </div>
-  <div class="field">
-    <%= f.label :instruction %><br>
-    <%= f.text_area :instruction %>
-  </div>
-  <div class="field">
-    <%= f.label :desc %><br>
-    <%= f.text_field :desc %>
-  </div>
-  <div class="field">
-    <%= f.label :attachments %><br>
-    <%= f.text_field :attachments %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-      </table>
-
-      <br>
-    </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
+    <div class="card">
       <div class="container">
+        <br><br>
+        <h5 class="header col s12 blue-grey-text text-darken-3">Para crear una nueva actividad, complete los siguientes campos.</h5>
+        <br>
+        <%= form_for(@activity) do |f| %>
+          <% if @activity.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+              <ul>
+              <% @activity.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <p class="blue-grey-text text-darken-3">Nombre</p>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <p class="blue-grey-text text-darken-3">Capítulo</p>
+            <%= f.text_field :chapter %>
+          </div>
+          <div class="field">
+            <p class="blue-grey-text text-darken-3">Instrucciones</p>
+            <%= f.text_area :instruction %>
+          </div>
+          <div class="field">
+            <p class="blue-grey-text text-darken-3">Descripción</p>
+            <%= f.text_field :desc %>
+          </div>
+          <div class="field">
+            <p class="blue-grey-text text-darken-3">Archivos adjuntos</p>
+            <%= f.text_field :attachments %>
+          </div>
+          <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Continuar</button>
+          </div>
+        <% end %>
+        </table>
+        <br>
+        <br><br>
       </div>
     </div>
-    <div class="parallax"><img src="assets/background4.jpg" alt="Unsplashed background img 2"></div>
   </div>
-</body>
-</html>
+</div>
