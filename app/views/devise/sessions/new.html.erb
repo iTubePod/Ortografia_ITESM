@@ -21,6 +21,9 @@
           </div>
 
           <div class="row">
+            <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+            <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+            <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
             <div class="input-field">
               <p class="teal-text text-lighten-2">Username</p>
               <%= f.text_field :matricula%>
