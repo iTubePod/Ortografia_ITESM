@@ -7,6 +7,7 @@ class CreateActivities < ActiveRecord::Migration
       t.string :desc
       t.string :attachments
       t.references :user, index: true, foreign_key: true
+      t.references :course, index: true, foreign_key: true
 
       t.timestamps null: false
     end

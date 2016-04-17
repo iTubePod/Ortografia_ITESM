@@ -1,42 +1,39 @@
-<div class="container">  
-  <div class="container">
-    <div class="card">
-      <div class="container">
-        <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-        <p>
-          <strong>Name:</strong>
-          <%= @activity.name %>
-        </p>
+<p>
+  <strong>Name:</strong>
+  <%= @activity.name %>
+</p>
 
-        <p>
-          <strong>Chapter:</strong>
-          <%= @activity.chapter %>
-        </p>
+<p>
+  <strong>Chapter:</strong>
+  <%= @activity.chapter %>
+</p>
 
-        <p>
-          <strong>Instruction:</strong>
-          <%= @activity.instruction %>
-        </p>
+<p>
+  <strong>Instruction:</strong>
+  <%= @activity.instruction %>
+</p>
 
-        <p>
-          <strong>Desc:</strong>
-          <%= @activity.desc %>
-        </p>
+<p>
+  <strong>Desc:</strong>
+  <%= @activity.desc %>
+</p>
 
-        <p>
-          <strong>Attachments:</strong>
-          <%= @activity.attachments %>
-        </p>
+<p>
+  <strong>Attachments:</strong>
+  <%= @activity.attachments %>
+</p>
 
-        <p>
-          <strong>User:</strong>
-          <%= @activity.user %>
-        </p>
+<p>
+  <strong>User:</strong>
+  <%= @activity.user %>
+</p>
 
-        <%= link_to 'Edit', edit_activity_path(@activity) %> |
-        <%= link_to 'Back', activities_path %>
-      </div>
-    </div>
-  </div>    
-</div>
+<p>
+  <strong>Course:</strong>
+  <%= @activity.course %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

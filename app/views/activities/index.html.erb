@@ -1,43 +1,39 @@
-  <br><br>
-  <br><br>
-  <br><br>
-  <div class="container">
-      <div class="container">
-            <div class="card">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Chapter</th>
-                    <th>Instruction</th>
-                    <th>Desc</th>
-                    <th>Attachments</th>
-                    <th>User</th>
-                    <th colspan="3"></th>
-                  </tr>
-                </thead>
+<p id="notice"><%= notice %></p>
 
-                <tbody>
-                  <% @activities.each do |activity| %>
-                    <tr>
-                      <td><%= activity.name %></td>
-                      <td><%= activity.chapter %></td>
-                      <td><%= activity.instruction %></td>
-                      <td><%= activity.desc %></td>
-                      <td><%= activity.attachments %></td>
-                      <td><%= activity.user %></td>
-                      <td><%= link_to 'Show', activity %></td>
-                      <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-                      <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
+<h1>Listing Activities</h1>
 
-              <br>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Chapter</th>
+      <th>Instruction</th>
+      <th>Desc</th>
+      <th>Attachments</th>
+      <th>User</th>
+      <th>Course</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-              <%= link_to 'New Activity', new_activity_path %>
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.name %></td>
+        <td><%= activity.chapter %></td>
+        <td><%= activity.instruction %></td>
+        <td><%= activity.desc %></td>
+        <td><%= activity.attachments %></td>
+        <td><%= activity.user %></td>
+        <td><%= activity.course %></td>
+        <td><%= link_to 'Show', activity %></td>
+        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-            </div>
-          </div>
-        </div>
+<br>
+
+<%= link_to 'New Activity', new_activity_path %>
