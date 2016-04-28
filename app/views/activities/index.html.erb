@@ -1,40 +1,52 @@
-<h1 class="header center gray-text">Activities</h1>
-<div class="container">
-<div class="card">
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Chapter</th>
-      <th>Instruction</th>
-      <th>Desc</th>
-      <th>Attachments</th>
-      <th>User</th>
-      <th>Course</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @activities.each do |activity| %>
-      <tr>
-        <td><%= activity.name %></td>
-        <td><%= activity.chapter %></td>
-        <td><%= activity.instruction %></td>
-        <td><%= activity.desc %></td>
-        <td><%= activity.attachments %></td>
-        <td><%= activity.user %></td>
-        <td><%= activity.course %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Activity', new_activity_path %>
+<% if current_user.isProfessor? %>
+  <br><br>
+  <div class="container">
+    <div class="container">
+      <div class="container">
+        <div class="card">
+          <div class="container">
+          <div class="icon-block">
+            <h2 class="center blue-text"><i class="material-icons">work</i></h2>
+            <h5 class="center">Tareas</h5>
+            <li class="divider"></li>
+            <h5 class="center">Todos los cursos</h5>
+            <% @activities.each do |activity| %>
+            <tr>
+              <li class="divider"></li>
+              <h5 class="center">Detalles de la actividad</h5>
+              <p class = "light">Título: <%= activity.name %></p>
+              <p class="light">Capítulo: <%= activity.chapter %></p>
+              <p class="light">Materia: <%= Course.find(activity.chapter).course %> | <%= Course.find(activity.chapter).c_name %></p>
+              <li class="divider"></li>
+              <br>
+              <div class="row">
+                <% if current_user.isProfessor? %>
+                  <div class="center col s3"><%= link_to 'Seleccionar', activity %></div>
+                  <div class="center col s3"><%= link_to "Ver archivos adjuntos", Resume.find(activity.attachments).attachment_url %></div>
+                  <div class="center col s3"><%= link_to 'Editar', edit_activity_path(activity) %></div>
+                  <div class="center col s3"><%= link_to 'Eliminar', activity, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                <% else %>
+                  <div class="center col s6"><%= link_to 'Seleccionar', activity %></div>
+                  <div class="center col s6"><%= link_to "Ver archivos adjuntos", Resume.find(activity.attachments).attachment_url %></div>                  
+                <% end %>
+              </div>
+          <% end %>
+          <% if current_user.isProfessor? %>
+            <li class="divider"></li>
+            <div class="center col s12"><%= link_to 'Crear actividad', new_activity_path %></div>
+          <% end %>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+<% else %>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+  <h1 class="header center white-text">Forbidden</h1>
+<% end %>
+

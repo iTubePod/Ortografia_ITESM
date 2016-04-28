@@ -16,35 +16,55 @@
 <body>
 <% if user_signed_in? %>
   <ul id="dropdown1" class="dropdown-content">
-                <li><%=link_to '<p class="blue-text text-lighten-1">Cerrar Sesión<i class="material-icons right">input</i></p>'.html_safe, destroy_user_session_path, :method => 'delete'%></li>
-                <li class="divider"></li>
+                <li>
+                  <%= link_to 'Salir', '/users/sign_out', :method => :delete %>
+                </li>
         </ul>
         <div class="navbar-fixed">
         <nav class="blue lighten-1" role="navigation">
             <div class="nav-wrapper">
                 <a id="logo-container" href="/" class="brand-logo"><img style="border: none;" src="/icon.png" alt="Home"/></a>
                             <ul class="right hide-on-med-and-down">
-                                  <li><a>Hola, <%=current_user.name %></a></li>
-                                  <li><a href="activities">Actividades<i class="material-icons left">assignment</i></a></li>
-                                  <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" href="#" data-activates="dropdown1">Configuración<i class="material-icons right">settings</i><i class="material-icons right">arrow_drop_down</i></a></li>
+                                  <%if current_user.isProfessor? %>
+                                    <li><a href="/activities">Actividades<i class="material-icons left">work</i></a></li>
+                                    <li><a href="/resumes">Archivos<i class="material-icons left">attachment</i></a></li>
+                                  <%end%>
+                                  <li><a href="/courses">Cursos<i class="material-icons left">assignment</i></a></li>
+                                  <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" href="#" data-activates="dropdown1">Hola, <%=current_user.name %><i class="material-icons left">person</i><i class="material-icons right">arrow_drop_down</i></a></li>
                              </ul>
                             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                         </div>
                     <ul id="nav-mobile" class="side-nav">
                       <li>
                     <div class="row center">
-                      <p class="blue-text text-lighten-1">Hola, <%=current_user.name %>!<i class="material-icons left">perm_identity</i></p>
+                      <p><a class="blue-text text-lighten-1">Hola, <%=current_user.name %><i class="material-icons left">perm_identity</i></a></p>
                     </div>
                       </li>
                       <li class="divider"></li>
                       <li>
                         <div class="row center">
-                          <a class="blue-text text-lighten-1" href="activities">Actividades<i class="material-icons left">assignment</i></a>
+                          <a class="blue-text text-lighten-1" href="/courses">Cursos<i class="material-icons left">assignment</i></a>
                         </div>
                       </li>
+                      <%if current_user.isProfessor? %>
+                        <li class="divider"></li>
+                        <li>
+                          <div class="row center">
+                            <a class="blue-text text-lighten-1" href="/activities">Actividades<i class="material-icons left">work</i></a>
+                          </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <div class="row center">
+                            <a class="blue-text text-lighten-1" href="/resumes">Archivos<i class="material-icons left">attachment</i></a>
+                          </div>
+                        </li>
+                      <% end %>
                       <li class="divider"></li>
                       <li>
-                        <%=link_to '<p class="blue-text text-lighten-1">Cerrar Sesión<i class="material-icons left">input</i></p>'.html_safe, destroy_user_session_path, :method => 'delete'%>
+                      <div class="row center">
+                        <%= link_to '<p class="blue-text text-lighten-1">Salir<i class="material-icons left">input</i></p>'.html_safe, '/users/sign_out', :method => :delete %>
+                        </div>
                       </li>
         </ul>
       </div>

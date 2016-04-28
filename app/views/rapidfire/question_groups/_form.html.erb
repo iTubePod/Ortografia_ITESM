@@ -1,0 +1,38 @@
+  <br><br>
+  <div class="container">
+    <div class="container">
+      <div class="container">
+        <div class="card">
+          <div class="container">
+          <div class="icon-block">
+          <br>
+            <h2 class="center blue-text"><i class="medium material-icons">bookmark</i></h2>
+            <h5 class="center">Nueva sección</h5>
+            <li class="divider"></li>
+
+              <%= form_for question_group do |f| %>
+                <%- if question_group.errors.any? %>
+                  <ul>
+                    <%- question_group.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                <% end %>
+
+                <p class="teal-text text-lighten-2">Nombre de la Sección</p>
+                <%= f.text_field :name%>
+                <p class="teal-text text-lighten-2">Actividad</p>
+                <%= f.select(:activity_id, Activity.all.collect{|u| [u.name, u.id]}, {}, {:class => 'browser-default'}) %>
+                <br>
+                <div class="actions">
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Continuar
+                  <i class="material-icons right">send</i></button>
+                </div>
+                <br>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

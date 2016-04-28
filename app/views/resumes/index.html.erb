@@ -1,0 +1,44 @@
+<% if current_user.isProfessor? %>
+  <br><br>
+  <div class="container">
+    <div class="container">
+      <div class="container">
+        <div class="card">
+          <div class="container">
+          <div class="icon-block">
+            <br>
+            <h2 class="center blue-text"><i class="medium material-icons">attachment</i></h2>
+            <h5 class="center">Archivos</h5>
+            <li class="divider"></li>
+<br />
+<div class="row center">
+<%= link_to "Subir nuevo archivo", new_resume_path, class: "btn btn-primary" %></div>
+<table class = "table table-bordered table-striped">
+   <thead>
+      <tr>
+         <th>Nombre del archivo</th>
+         <th></th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @resumes.each do |resume| %>
+         
+         <tr>
+            <td><%= resume.name %></td>
+            <td><%= link_to "Ver", resume.attachment_url %></td>
+            <td><%= button_to "Eliminar",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<% end %>

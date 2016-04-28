@@ -50,3 +50,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 
 gem 'coffee-script-source', '1.8.0'
+
+gem 'carrierwave', '~> 0.9'
+
+gem 'rapidfire'

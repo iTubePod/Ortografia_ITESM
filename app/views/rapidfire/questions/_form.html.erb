@@ -1,0 +1,45 @@
+  <br><br>
+  <div class="container">
+    <div class="container">
+      <div class="container">
+        <div class="card">
+          <div class="container">
+          <div class="icon-block">
+            <h2 class="center blue-text"><i class="material-icons">work</i></h2>
+            <h5 class="center">Preguntas de la actividad</h5>
+            <li class="divider"></li>
+<h3>Question</h3>
+
+<%= form_for form, as: :question, url: url, method: method do |f| %>
+  <%- unless form.errors.empty? %>
+    <ul>
+      <%- form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<div class="field">
+  <%= f.label :type %>
+  <%= f.select :type, ::Rapidfire::QuestionForm::QUESTION_TYPES, {}, id: "question_type", :class => 'browser-default' %>
+</div>
+<div class="field">
+  <%= f.label :question_text %>
+  <%= f.text_field :question_text %>
+</div>
+<div class="field">
+  <%= f.label :answer_options %>
+  <%= f.text_area :answer_options, rows: 5 %>
+  </div>
+
+  <%= f.check_box :answer_presence %>
+    <%= f.label :answer_presence %>
+
+
+  <%= f.submit submit_text %>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -5,7 +5,7 @@ class CreateActivities < ActiveRecord::Migration
       t.string :chapter
       t.text :instruction
       t.string :desc
-      t.string :attachments
+      t.references :resume, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
       t.references :course, index: true, foreign_key: true
 

@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
+  get 'resumes/index'
+
+  get 'resumes/new'
+
+  get 'resumes/create'
+
+  get 'resumes/destroy'
+
   resources :activities
   resources :courses
+  resources :resumes, only: [:index, :new, :create, :destroy]
   root 'home#index'
 
   devise_for :users
@@ -60,4 +69,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+   mount Rapidfire::Engine => "/rapidfire"
 end

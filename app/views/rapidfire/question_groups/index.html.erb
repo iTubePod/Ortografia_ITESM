@@ -1,0 +1,38 @@
+  <br><br>
+  <div class="container">
+    <div class="container">
+      <div class="container">
+        <div class="card">
+          <div class="container">
+          <div class="icon-block">
+            <br>
+            <h2 class="center blue-text"><i class="medium material-icons">bookmark</i></h2>
+            <h5 class="center">Secciones</h5>
+            <li class="divider"></li>
+            <div class="row center">
+                <% if can_administer? %>
+                  <div class="center col s12"><%= link_to '<p class="blue-text text-lighten-1">Agregar sección<i class="material-icons left">plus_one</i></p>'.html_safe, new_question_group_path %></div>
+                <% end %>
+              <hr/>
+              </div>
+              <table>
+                <colgroup>
+                  <col>
+                  <col width="250">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Sección</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render partial: "question_group", collection: @question_groups %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

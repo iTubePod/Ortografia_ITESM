@@ -3575,7 +3575,10 @@ $(document).ready(function(){
       });
 
     };
-
+$(document).ready(function() {
+    // Select - Single
+    $('select:not([multiple])').material_select();
+});
 
   });
 }( jQuery ));;(function ($) {

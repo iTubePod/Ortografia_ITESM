@@ -1,0 +1,33 @@
+  <br><br>
+  <div class="container">
+    <div class="container">
+      <div class="container">
+        <div class="card">
+          <div class="container">
+          <div class="icon-block">
+            <h2 class="center blue-text"><i class="material-icons">work</i></h2>
+            <h5 class="center">Responda correctamente las siguientes preguntas</h5>
+            <li class="divider"></li>
+              <%= form_for([@question_group, @answer_group_builder]) do |f| %>
+                    <%- @answer_group_builder.answers.each do |answer| %><br>
+                      <div class="row">
+                        <div class="input-field">
+                          <%= f.fields_for("#{answer.question.id}", answer) do |answer_form| %>
+                            <%= render_answer_form_helper(answer, answer_form) %>
+                          </div>
+                        </div>
+                      <% end %>
+                      <br>
+                    <% end %>
+                  <div class="row">
+                    <button class="btn waves-effect waves-light" type="send" name="action">Terminar
+                  <i class="material-icons right">send</i>
+              </button>
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>

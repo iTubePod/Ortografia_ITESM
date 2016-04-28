@@ -1,14 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @course.course %>
-</p>
-
-<p>
-  <strong>C name:</strong>
-  <%= @course.c_name %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<br><br>
+  <div class="container">
+    <div class="container">
+      <div class="container">
+        <div class="card">
+          <div class="container">
+          <div class="icon-block">
+            <h2 class="center blue-text"><i class="material-icons">work</i></h2>
+            <h5 class="center">Tareas</h5>
+            <li class="divider"></li>
+            <h5 class="center"><%= @course.c_name %></h5>
+            <% @activities.each do |activity| %>
+			      <tr>
+              <li class="divider"></li>
+			        <h5 class="center"><%= activity.name %></h5>
+              <p class = "center light"></p>
+			        <p class="center light"><%= activity.instruction %></p>
+              <li class="divider"></li>
+              <br>
+              <div class="row">
+                <% if current_user.isProfessor? %>
+                  <div class="center col s3"><%= link_to "Ver archivos adjuntos", Resume.find(activity.attachments).attachment_url %></div>
+                  <div class="center col s3"><%= link_to 'Seleccionar', activity %></div>
+                  <div class="center col s3"><%= link_to 'Editar', edit_activity_path(activity) %></div>
+                  <div class="center col s3"><%= link_to 'Eliminar', activity, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                <% else %>
+                  <div class="center col s6"><%= link_to "Ver archivos adjuntos", Resume.find(activity.attachments).attachment_url %></div>
+                  <div class="center col s6"><%= link_to 'Seleccionar', activity %></div
+                <% end %>
+                <li class="divider"></li>
+              </div>
+			    <% end %>
+          <% if current_user.isProfessor? %>
+            <li class="divider"></li>
+            <div class="center col s12"><%= link_to 'Crear actividad', new_activity_path %></div>
+          <% end %>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

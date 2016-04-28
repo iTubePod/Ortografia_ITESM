@@ -1,0 +1,8 @@
+<%= render partial: "rapidfire/answers/errors", locals: {answer: answer} %>
+<%- answer.question.options.each do |option| %>
+    <%= f.radio_button :answer_text, option %>
+    <%= f.label "answer_text_#{option}", option do %>
+    <%= option %>
+  <% end %>
+<% end %>
+<%= f.label :answer_text, answer.question.question_text %>

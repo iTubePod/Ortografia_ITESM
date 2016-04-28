@@ -1,0 +1,42 @@
+<% if current_user.isProfessor? %>
+  <br><br>
+  <div class="container">
+    <div class="container">
+      <div class="container">
+        <div class="card">
+          <div class="container">
+          <div class="icon-block">
+            <br>
+            <h2 class="center blue-text"><i class="medium material-icons">cloud_upload</i></h2>
+            <h5 class="center">Subir archivo</h5>
+            <li class="divider"></li>
+              <% if !@resume.errors.empty? %>
+                 <div class = "alert alert-error">
+                    
+                    <ul>
+                       <% @resume.errors.full_messages.each do |msg| %>
+                          <li><%= msg %></li>
+                       <% end %>
+                    </ul>
+                    
+                 </div>
+              <% end %>
+
+              <div class = "well">
+                 <%= form_for @resume, html: { multipart: true } do |f| %>
+                    <p class="teal-text text-lighten-2">Nombre del archivo</p>
+                    <%= f.text_field :name %>
+                    <p class="teal-text text-lighten-2">Seleccione archivo</p>
+                    <%= f.file_field :attachment %>
+                    <br><br>
+                    <%= f.submit "Subir archivo", class: "btn btn-primary" %>
+                    <br><br>
+                 <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

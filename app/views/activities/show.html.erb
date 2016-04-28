@@ -1,39 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @activity.name %>
-</p>
-
-<p>
-  <strong>Chapter:</strong>
-  <%= @activity.chapter %>
-</p>
-
-<p>
-  <strong>Instruction:</strong>
-  <%= @activity.instruction %>
-</p>
-
-<p>
-  <strong>Desc:</strong>
-  <%= @activity.desc %>
-</p>
-
-<p>
-  <strong>Attachments:</strong>
-  <%= @activity.attachments %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @activity.user %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @activity.course %>
-</p>
-
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+  <br><br>
+<div class="container">
+    <div class="container">
+      <div class="container">
+        <div class="card">
+          <div class="container">
+            <p>
+              <li class="divider"></li>
+              <h5 class="center">Detalles de la actividad</h5>
+              <p class = "light">Título: <%= @activity.name %></p>
+              <p class="light">Capítulo: <%= @activity.chapter %></p>
+              <p class="light">Materia: <%= Course.find(@activity.chapter).course %> | <%= Course.find(@activity.chapter).c_name %></p>
+              <li class="divider"></li>
+              <br>
+            <% if current_user.isProfessor? %>
+              <%= link_to 'Editar', edit_activity_path(@activity) %> |
+              <%= link_to 'Atrás', activities_path %> |
+              <%= link_to 'Más información ', rapidfire_path %>
+              <br>
+            <% else %>
+              <a class="waves-effect waves-light btn" href="/rapidfire">Responder actividad</a>
+            <% end %>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>

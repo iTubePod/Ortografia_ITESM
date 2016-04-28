@@ -1,51 +1,28 @@
   <br><br>
   <br><br>
   <br><br>
+  <br><br>
+  <br><br>
   <div class="container">
-      <div class="container">
+        <div class="container">
           <div class="card">
+            <div class="container">
+            <div class="icon-block">
+            <h2 class="center blue-text"><i class="material-icons">assignment</i></h2>
+            <h5 class="center">Mis Cursos</h5>
                 <table>
-                <thead>
-                  <tr>
-                    <th data-field=":name">Name</th>
-                    <th data-field=":course_id">Course</th>
-                    <th data-field="chapter">Chapter</th>
-                    <th data-field="date">Due Date</th>
-                  </tr>
-                </thead>
                   <tbody>
+                  <% @cursos.each do|course|%>
                     <tr>
-                      <td>Ejercicio Agudas</td>
-                      <td>Análisis y Expresión Verbal</td>
-                      <td>1</td>
-                      <td>6 de Abril</td>
+                      <li class="divider"></li>
+                      <td><%= Course.find(course.course_id).c_name %></td>
+                      <td><%= Course.find(course.course_id).course %></td>
+                      <td><%= link_to 'Ir', Course.find(course.course_id) %></td>
                     </tr>
-                    <tr>
-                      <td>Ejercicio Graves</td>
-                      <td>Análisis y Expresión Verbal</td>
-                      <td>2</td>
-                      <td>6 de Abril</td>
-                    </tr>
-                    <tr>
-                      <td>Ejercicio Esdrújulas </td>
-                      <td>Análisis y Expresión Verbal</td>
-                      <td>3</td>
-                      <td>6 de Abril</td>
-                    </tr>
-                    <tr>
-                      <td>Ejercicio Sobresdrújulas</td>
-                      <td>Análisis y Expresión Verbal</td>
-                      <td>3</td>
-                      <td>8 de Abril</td>
-                    </tr>
-                    <tr>
-                      <td>Ejercicio Ensayo</td>
-                      <td>Análisis y Expresión Verbal</td>
-                      <td>3</td>
-                      <td>12 de Abril</td>
-                    </tr>
+                  <%end%>
                   </tbody>
                 </table>
+                <br>
               </div>
-            </div>
-           </div> 
+          </div>
+      </div>
